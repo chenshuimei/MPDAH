@@ -1,0 +1,235 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   Theme Variables - Light (Default) + Dark Mode
+   Enterprise Brand Color: #00692f (HSL: 147 100% 21%)
+   ============================================ */
+
+:root {
+  /* Enterprise Brand Color - 嘉销宝/嘉有生意 */
+  --brand: 147 100% 21%;
+  --brand-light: 147 60% 35%;
+  --brand-dark: 147 100% 15%;
+  --brand-muted: 147 40% 95%;
+
+  /* Light Theme (Default) */
+  --canvas: 0 0% 98%;
+  --canvas-deep: 0 0% 96%;
+
+  --surface: 0 0% 100%;
+  --surface-hover: 147 30% 97%;
+  --surface-active: 147 20% 94%;
+  --surface-raised: 0 0% 100%;
+
+  --border: 147 10% 88%;
+  --border-subtle: 147 10% 92%;
+
+  --text-primary: 147 30% 15%;
+  --text-secondary: 147 10% 40%;
+  --text-tertiary: 147 10% 55%;
+  --text-inverse: 0 0% 100%;
+
+  /* Accent uses brand color */
+  --accent: 147 100% 21%;
+  --accent-glow: 147 60% 35%;
+  --accent-muted: 147 40% 95%;
+
+  --success: 160 84% 35%;
+  --success-muted: 160 40% 95%;
+  --warning: 38 92% 45%;
+  --warning-muted: 38 40% 95%;
+  --danger: 0 72% 50%;
+  --danger-muted: 0 40% 95%;
+
+  /* Gradients */
+  --gradient-accent: linear-gradient(135deg, hsl(147 100% 21%), hsl(147 70% 30%));
+  --gradient-surface: linear-gradient(180deg, hsl(0 0% 100%), hsl(147 20% 98%));
+  --gradient-glow: radial-gradient(ellipse at 50% 0%, hsl(147 100% 21% / 0.08) 0%, transparent 60%);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 300ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --canvas: 222 47% 6%;
+  --canvas-deep: 222 50% 4%;
+
+  --surface: 222 30% 10%;
+  --surface-hover: 222 28% 13%;
+  --surface-active: 222 26% 16%;
+  --surface-raised: 222 28% 12%;
+
+  --border: 222 20% 18%;
+  --border-subtle: 222 20% 14%;
+
+  --text-primary: 210 40% 96%;
+  --text-secondary: 215 20% 65%;
+  --text-tertiary: 215 15% 45%;
+  --text-inverse: 222 47% 6%;
+
+  --accent: 147 80% 45%;
+  --accent-glow: 147 90% 55%;
+  --accent-muted: 147 30% 15%;
+
+  --success: 160 84% 39%;
+  --success-muted: 160 40% 14%;
+  --warning: 38 92% 50%;
+  --warning-muted: 38 40% 14%;
+  --danger: 0 84% 60%;
+  --danger-muted: 0 40% 14%;
+
+  --gradient-accent: linear-gradient(135deg, hsl(147 80% 45%), hsl(147 70% 50%));
+  --gradient-surface: linear-gradient(180deg, hsl(222 30% 11%), hsl(222 30% 9%));
+  --gradient-glow: radial-gradient(ellipse at 50% 0%, hsl(147 80% 45% / 0.08) 0%, transparent 60%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: hsl(var(--canvas));
+  color: hsl(var(--text-primary));
+  transition: background-color var(--transition-smooth), color var(--transition-smooth);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--text-tertiary));
+}
+
+/* Utility classes */
+.gradient-accent {
+  background: var(--gradient-accent);
+}
+
+.gradient-surface {
+  background: var(--gradient-surface);
+}
+
+.glow-top {
+  background: var(--gradient-glow);
+}
+
+.text-gradient {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Brand color utilities */
+.bg-brand {
+  background-color: hsl(var(--brand));
+}
+
+.text-brand {
+  color: hsl(var(--brand));
+}
+
+.border-brand {
+  border-color: hsl(var(--brand));
+}
+
+/* Typing indicator animation */
+@keyframes typing {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+.typing-dot {
+  animation: typing 1.4s ease-in-out infinite;
+}
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Chart container fix */
+.recharts-responsive-container {
+  min-height: 0 !important;
+}
+
+/* Dashboard card hover effect */
+.metric-card-hover {
+  transition: all var(--transition-fast);
+}
+.metric-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px hsl(var(--brand) / 0.15);
+}
+
+/* Tooltip animation */
+.insight-tooltip {
+  animation: tooltipSlide 0.2s ease-out;
+}
+
+@keyframes tooltipSlide {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Flow chart animation */
+@keyframes flowDash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.animate-flow-dash {
+  animation: flowDash 0.8s linear infinite;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out;
+}

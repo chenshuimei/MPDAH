@@ -519,7 +519,7 @@ export const jiayoushengyiMetrics: DashboardMetric[] = jiaxiaobaoMetrics.map(m =
          m.id === 'healthScore' ? '91' :
          m.id === 'fcp' ? '0.95' :
          m.value,
-  change: Number((m.change * (0.8 + Math.random() * 0.4)).toFixed(2)),
+  change: Number(((m.change || 0) * (0.8 + Math.random() * 0.4)).toFixed(2)),
 }));
 
 // 示例分享记录

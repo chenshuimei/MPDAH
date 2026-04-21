@@ -60,7 +60,7 @@ export interface MiniApp {
 }
 
 // Role types
-export type UserRole = 'admin' | 'product' | 'operation' | 'developer' | 'executive';
+export type UserRole = 'admin' | 'product' | 'operation' | 'developer' | 'pm' | 'uiux';
 
 export interface RoleConfig {
   id: UserRole;

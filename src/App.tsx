@@ -5,10 +5,10 @@ import MetricDetailPage from '@/components/MetricDetailPage';
 import ShareViewPage from '@/components/ShareViewPage';
 import { roleConfigs } from '@/data/miniappData';
 
-// Get initial role from localStorage or default to 'executive'
+// Get initial role from localStorage or default to 'pm'
 const getInitialRole = (): UserRole => {
   const saved = localStorage.getItem('userRole') as UserRole;
-  return saved && roleConfigs.some(r => r.id === saved) ? saved : 'executive';
+  return saved && roleConfigs.some(r => r.id === saved) ? saved : 'pm';
 };
 
 // Get initial theme from localStorage or system preference
@@ -65,6 +65,7 @@ export default function App() {
       category: 'traffic',
       description: '通用数据分析助手',
       aiInsight: '我是您的AI数据分析助手，可以帮您分析小程序的各项指标数据。',
+      detailPage: '/general-analysis',
     };
     setSelectedMetric(defaultMetric);
     setView('detail');

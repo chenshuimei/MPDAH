@@ -173,7 +173,7 @@ export default function ChatArea({ onExport }: ChatAreaProps) {
           className="flex-1 overflow-y-auto relative z-10 pt-4 pb-2"
         >
           {messages.map(msg => (
-            <ChatMessage key={msg.id} message={msg} onExport={onExport} />
+            <ChatMessage key={msg.id} message={msg} onShare={onExport} />
           ))}
         </div>
       )}

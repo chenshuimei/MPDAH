@@ -131,7 +131,7 @@ export default function InlineChart({ chart }: InlineChartProps) {
                 paddingAngle={3}
                 dataKey={yKeys[0].key}
                 nameKey={xKey}
-                label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                label={({ name, percent }: { name?: string; percent?: number }) => `${name || ''} ${((percent || 0) * 100).toFixed(0)}%`}
                 labelLine={{ stroke: 'hsl(215, 15%, 45%)' }}
               >
                 {data.map((entry, i) => (

@@ -49,7 +49,7 @@ export default function MetricDetailPage({ metric, currentRole, onBack }: Metric
       content: `您好！我是您的数据分析师啤啤。您正在查看 **${metric.label}** 的详细分析。\n\n当前数值：**${metric.value}${metric.unit}**，${metric.change && metric.change > 0 ? '较上期增长' : '较上期下降'} ${Math.abs(metric.change || 0)}%。\n\n您可以问我：\n• 这个指标为什么变化？\n• 如何优化这个指标？\n• 与历史数据对比情况\n• 同行业benchmark对比`,
       timestamp: new Date(),
       insights: [
-        { type: 'neutral', title: '指标概览', detail: metric.description },
+        { type: 'neutral', title: '指标概览', detail: metric.description || '' },
         { type: metric.change && metric.change > 0 ? 'positive' : 'warning', 
           title: '变化趋势', 
           detail: `该指标${metric.change && metric.change > 0 ? '呈上升趋势' : '需要关注'}，环比${metric.change && metric.change > 0 ? '增长' : '下降'} ${Math.abs(metric.change || 0)}%` 

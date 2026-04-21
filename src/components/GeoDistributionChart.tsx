@@ -74,8 +74,8 @@ const CustomTreemapNode = (props: any) => {
   const { x, y, width, height, name, size, percent, fill } = props;
   
   // Handle undefined values
-  if (x == null || y == null || width == null || height == null) return null;
-  if (width < 30 || height < 20) return null;
+  if (x == null || y == null || width == null || height == null) return <g />;
+  if (width < 30 || height < 20) return <g />;
   
   const showText = width > 50 && height > 40;
   const showValue = width > 60 && height > 60;

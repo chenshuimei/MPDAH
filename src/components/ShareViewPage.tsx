@@ -75,7 +75,7 @@ export default function ShareViewPage({ shareId, onBack }: ShareViewPageProps) {
       </header>
 
       {/* Content */}
-      <main className="max-w-4xl mx-auto p-6">
+      <main className="max-w-4xl mx-auto p-6 pb-24">
         {/* Title */}
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold text-text-primary mb-2">{title}</h1>

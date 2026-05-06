@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { UserRole, DashboardMetric } from '@/types';
 import Dashboard from '@/components/Dashboard';
 import MetricDetailPage from '@/components/MetricDetailPage';
@@ -99,6 +100,7 @@ export default function App() {
           onBack={handleBackToDashboard}
         />
       ) : null}
+      <SpeedInsights />
     </div>
   );
 }
